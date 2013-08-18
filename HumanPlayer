@@ -1,0 +1,34 @@
+package tictactoe;
+
+
+import java.util.*;
+
+/***A Human Player object is a human player in Tic Tac Toe
+*It has a method to retrieve user input to create a move
+*and contains information about the player's mark: 'X' or 'O'
+*/
+
+public class HumanPlayer
+	implements Player{
+	private char mark;
+	
+	//constructor
+	public HumanPlayer(char marking){
+		mark = marking;
+	}
+	
+	public Move getMove(Board board){
+		board.print();
+		System.out.print(mark + ", Choose square: Row#.Column# (e.g. \"1.2\" for top-middle):");
+        Scanner scanner = new Scanner(System.in);
+		String input = scanner.nextLine();
+		Move proposedMove = new Move(input,mark);
+		return proposedMove;//Returns any string (will check if it's a legal move later).
+    }//end getMove()
+	
+    public char getMark(){
+    	return mark;
+	}
+	
+	
+}
